@@ -1,9 +1,10 @@
+import os
 from openai import OpenAI
 
 # 1. 获取client对象，OpenAI类对象
 client = OpenAI(
-    # base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
-    base_url="http://localhost:11434/v1"
+    api_key=os.environ["INTERNAL_LLM_API_KEY"],
+    base_url=os.environ["INTERNAL_LLM_BASE_URL"],
 )
 
 examples_data = {       # 示例数据
@@ -53,8 +54,7 @@ for key, value in examples_data.items():
 # 向模型提问
 for q in questions:
     response = client.chat.completions.create(
-        # model="qwen3-max",
-        model="qwen3:4b",
+        model=os.environ["INTERNAL_LLM_MODEL"],
         messages=messages + [{"role": "user", "content": f"按照示例，回答这段文本的分类类别：{q}"}]
     )
 

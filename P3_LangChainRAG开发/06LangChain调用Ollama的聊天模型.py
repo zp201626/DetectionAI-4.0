@@ -1,8 +1,13 @@
-from langchain_ollama import ChatOllama
+import os
+from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 
 # 得到模型对象, qwen3-max就是聊天模型
-model = ChatOllama(model="qwen3:4b")
+model = ChatOpenAI(
+    api_key=os.environ["INTERNAL_LLM_API_KEY"],
+    base_url=os.environ["INTERNAL_LLM_BASE_URL"],
+    model=os.environ["INTERNAL_LLM_MODEL"],
+)
 
 # 准备消息列表
 messages = [

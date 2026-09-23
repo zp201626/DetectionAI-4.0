@@ -1,7 +1,12 @@
-from langchain_ollama import OllamaEmbeddings
+import os
+from langchain_openai import OpenAIEmbeddings
 
 
-model = OllamaEmbeddings(model="qwen3-embedding:4b")
+model = OpenAIEmbeddings(
+    api_key=os.environ["INTERNAL_LLM_API_KEY"],
+    base_url=os.environ["INTERNAL_LLM_BASE_URL"],
+    model=os.environ["INTERNAL_EMBEDDING_MODEL"],
+)
 
 # 不用invoke stream
 # embed_query、embed_documents

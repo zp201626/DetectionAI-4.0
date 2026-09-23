@@ -8,9 +8,14 @@
 # for chunk in res:
 #     print(chunk, end="", flush=True)
 
-from langchain_ollama import OllamaLLM
+import os
+from langchain_openai import OpenAI
 
-model = OllamaLLM(model="qwen3:4b")
+model = OpenAI(
+    api_key=os.environ["INTERNAL_LLM_API_KEY"],
+    base_url=os.environ["INTERNAL_LLM_BASE_URL"],
+    model=os.environ["INTERNAL_LLM_MODEL"],
+)
 
 res = model.stream(input="你是谁呀能做什么？")
 

@@ -1,9 +1,10 @@
 from openai import OpenAI
 import json
+import os
 
 client = OpenAI(
-    # base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
-    base_url="http://localhost:11434/v1"
+    api_key=os.environ["INTERNAL_LLM_API_KEY"],
+    base_url=os.environ["INTERNAL_LLM_BASE_URL"],
 )
 
 schema = ['日期', '股票名称', '开盘价', '收盘价', '成交量']
@@ -65,7 +66,7 @@ for example in examples_data:
 
 for q in questions:
     response = client.chat.completions.create(
-        model="qwen3:4b",
+        model=os.environ["INTERNAL_LLM_MODEL"],
         messages=messages + [{"role": "user", "content": f"按照上述的示例，现在抽取这个句子的信息：{q}"}]
     )
 
