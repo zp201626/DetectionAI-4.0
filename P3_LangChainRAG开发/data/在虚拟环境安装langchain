@@ -1,0 +1,6 @@
+#打开powershell
+#cd C:\Users\Maya\Desktop\AI大模型RAG与智能体开发
+#.\.venv\Scripts\python.exe -m pip install langchain
+#.\.venv\Scripts\python.exe -m pip install langchain-community langchain-ollama dashscope chromadb
+#验证是否安装成功
+#.\.venv\Scripts\python.exe -c "import langchain; print(langchain.__version__)"

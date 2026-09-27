@@ -1,10 +1,11 @@
+## 项目主程序，启动对话WEB页面
 import time
 from rag import RagService
 import streamlit as st
 import config_data as config
 
 # 标题
-st.title("智能客服")
+st.title("DetectionAI助手")
 st.divider()            # 分隔符
 
 if "message" not in st.session_state:

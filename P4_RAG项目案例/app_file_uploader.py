@@ -1,3 +1,28 @@
+# 知识库更新主程序（Streamlit）
+#
+# 【在项目虚拟环境中安装依赖】
+# 请在项目根目录：
+# C:\Users\Maya\Desktop\AI大模型RAG与智能体开发
+# 执行：
+# .\.venv\Scripts\python.exe -m pip install streamlit langchain-chroma langchain-community dashscope
+#
+# 【设置阿里云 DashScope API Key】
+# 如果运行时提示缺少 API Key，请先执行：
+# $env:DASHSCOPE_API_KEY="你的阿里云API_KEY"
+#
+# 【启动 Streamlit 页面】
+# 方式一：在项目根目录直接执行：
+# .\.venv\Scripts\python.exe -m streamlit run "P4_RAG项目案例\app_file_uploader.py"
+#
+# 方式二：先进入当前目录，再执行：
+# cd "P4_RAG项目案例"
+# ..\.venv\Scripts\python.exe -m streamlit run app_file_uploader.py
+#
+# 启动成功后，在浏览器打开：http://localhost:8501
+#
+# 【验证 Streamlit 是否安装成功】
+# .\.venv\Scripts\python.exe -c "import streamlit; print(streamlit.__version__)"
+
 """
 基于Streamlit完成WEB网页上传服务
 

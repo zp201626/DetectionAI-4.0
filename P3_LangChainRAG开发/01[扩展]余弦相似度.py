@@ -48,6 +48,7 @@ def cosine_similarity(vec_a, vec_b):
 
     result = get_dot(vec_a, vec_b) / (get_norm(vec_a) * get_norm(vec_b))
     return result
+## print(result)
 
 
 if __name__ == '__main__':

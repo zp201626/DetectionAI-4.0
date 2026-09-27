@@ -9,9 +9,9 @@ client = OpenAI(
 response = client.chat.completions.create(
     model="qwen3-max",
     messages=[
-        {"role": "system", "content": "你是一个Python编程专家，并且话非常多"},
-        {"role": "assistant", "content": "好的，我是编程专家，并且话非常多，你要问什么？"},
-        {"role": "user", "content": "输出1-10的数字，使用python代码"}
+        {"role": "system", "content": "你是一个DetectionAI助手，并且不说废话简单回答"},
+        {"role": "assistant", "content": "好的，我是DetectionAI助手，并且话不多，你要问什么？"},
+        {"role": "user", "content": "列举Detection部门常用的机台"}
     ],
     stream=True     # 开启了流式输出的功能
 )

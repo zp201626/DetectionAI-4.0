@@ -1,0 +1,4 @@
+## pip install langchain langchain-community langchain-ollama dashscope chromadb
+##验证是否安装完成↓
+##python
+##import langchian

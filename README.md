@@ -16,3 +16,5 @@ $env:INTERNAL_EMBEDDING_MODEL="公司网关中的向量模型名"
 这些变量只对当前终端窗口生效。也可以使用公司统一的环境变量管理方式配置，不要把真实密钥提交到 Git。
 
 对应示例位于 `P2_提示词优化` 和 `P3_LangChainRAG开发` 目录。运行前需要安装 `openai`、`langchain-openai` 及项目实际用到的其他 Python 依赖。
+ ##可能需要询问的资源:pythonSDK是不是DASHCOPE;安装openai包
+ ##安装langchain

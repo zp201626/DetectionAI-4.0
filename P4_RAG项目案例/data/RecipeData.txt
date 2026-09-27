@@ -1,0 +1,126 @@
+DetectionAI 检索测试资料库（RecipeData）
+版本：2026-09-26
+用途：用于测试 Detection layer、机台、SOP、defect owner 和参考案例的向量检索匹配度。
+
+==================================================
+案例编号：RC-001
+项目：DH
+产品：167T
+Layer：WLVETCHCLEANMACRO
+检测机台：F300
+检测目的：确认湿法刻蚀清洗后 macro defect 的残留、颗粒和水痕风险。
+检测需求合理性：合理。该 layer 的主要风险为清洗后残留物和大尺寸颗粒；F300 的 macro defect 检测能力可用于首件确认和异常批复判。
+机台使用注意事项：
+1. 上片前确认 wafer 表面干燥，避免水痕被误判为 defect。
+2. 使用 WLVETCHCLEANMACRO 专用 recipe，禁止直接套用 CONTACT 或 METAL layer recipe。
+3. 每班首片执行标准片确认；发现颗粒数异常时先确认 chuck、光学窗口和 wafer 边缘污染。
+4. 异常 wafer 需保留原始 map、截图和 recipe version。
+SOP位置：SOP/Detection/F300/WLVETCHCLEANMACRO/F300_WLVETCHCLEANMACRO_v2.3.pdf
+需与 defect owner 确认：
+1. 缺陷尺寸下限和颗粒 count limit。
+2. 水痕、残留和真实颗粒的分类规则。
+3. 是否需要全片复检，以及异常 lot 的 disposition。
+参考案例：DH-167T-LotA2317，清洗槽过滤器失效导致 wafer center particle count 升高；更换过滤器并复测后恢复正常。
+
+==================================================
+案例编号：RC-002
+项目：DH
+产品：167T
+Layer：WLVETCHCLEANMICRO
+检测机台：F300
+检测目的：确认湿法刻蚀清洗后 micro defect、细小颗粒和局部残留。
+检测需求合理性：部分合理。F300 可作为初筛，但若规格要求关注亚微米级缺陷，需要与高分辨率 review SEM 或其他 micro inspection 机台配合。
+机台使用注意事项：
+1. 确认 recipe 的 pixel size、sensitivity 和 defect size threshold。
+2. 不要以 macro recipe 的 count limit 判定 micro defect。
+3. 对高风险区域（edge、notch、center）保留 defect map。
+SOP位置：SOP/Detection/F300/WLVETCHCLEANMICRO/F300_WLVETCHCLEANMICRO_v1.8.pdf
+需与 defect owner 确认：
+1. F300 的检出下限是否满足产品规格。
+2. 哪些 defect type 需要 review SEM 复判。
+3. micro defect 的 sampling plan 和 hold criteria。
+参考案例：DH-167T-LotB1108，F300 初筛发现 edge cluster；SEM 复判为化学残留，不是颗粒。
+
+==================================================
+案例编号：RC-003
+项目：DH
+产品：168T
+Layer：CONTACT
+检测机台：F300
+检测目的：确认 contact 开口后的 pattern defect、残留和局部 CD 异常。
+检测需求合理性：需要结合 defect 类型判断。F300 适合做 pattern defect 筛查；若目标是精确 CD 量测，应使用 CD-SEM，不应仅依赖 F300。
+机台使用注意事项：
+1. 使用 CONTACT 专用 pattern inspection recipe。
+2. 确认 focus、threshold 和 die-to-die 对比区域。
+3. 避免将 layout difference 误判为 defect。
+SOP位置：SOP/Detection/F300/CONTACT/F300_CONTACT_v3.1.pdf
+需与 defect owner 确认：
+1. 检测目标是 pattern defect 还是 CD control。
+2. 重点 die、重点区域和可接受的 nuisance rate。
+3. 缺陷 map 是否需要回传 litho 或 etch owner。
+参考案例：DH-168T-LotC0812，contact open 残留集中在 wafer edge；确认原因为 etch chamber seasoning 不足。
+
+==================================================
+案例编号：RC-004
+项目：DH
+产品：167T
+Layer：METAL1
+检测机台：F300
+检测目的：确认金属层后的刮伤、颗粒、残留和 bridge 风险。
+检测需求合理性：合理。F300 适用于金属层 surface defect 筛查；bridge 或断线需结合电测和高分辨率 review 进行确认。
+机台使用注意事项：
+1. 检查金属表面反射造成的 false alarm。
+2. 选用 METAL1 专用 illumination 和 threshold。
+3. 发现线状 defect 时区分 wafer handling scratch 和工艺引起异常。
+SOP位置：SOP/Detection/F300/METAL1/F300_METAL1_v2.0.pdf
+需与 defect owner 确认：
+1. 颗粒、刮伤、bridge 的 defect code 定义。
+2. 金属反光造成 false alarm 的容忍规则。
+3. 是否要求与 electrical test 数据关联。
+参考案例：DH-167T-LotD3005，wafer backside particle 导致 chuck mark，被误认为 metal scratch；清洁 chuck 后问题消失。
+
+==================================================
+案例编号：RC-005
+项目：MX
+产品：220T
+Layer：POLY
+检测机台：A200
+检测目的：确认 poly pattern 后的 line break、残留和局部图形异常。
+检测需求合理性：合理。A200 对 POLY pattern 的 die-to-die 比对效果较好；对于关键 CD，仍需 CD-SEM 复核。
+机台使用注意事项：
+1. 使用 POLY_A200_R5 recipe，确认 golden die 状态正常。
+2. recipe 切换后先跑 monitor wafer。
+3. 当 nuisance defect 突增时检查 alignment 和 focus。
+SOP位置：SOP/Detection/A200/POLY/A200_POLY_R5_v1.2.pdf
+需与 defect owner 确认：
+1. line break 和 residue 的优先级。
+2. 是否需要对关键 cell 增加采样密度。
+3. A200 defect map 的回传格式。
+参考案例：MX-220T-LotE0921，golden die 版本错误导致大量 false alarm；更新 golden die 后恢复。
+
+==================================================
+案例编号：RC-006
+项目：DH
+产品：167T
+Layer：WLVETCHCLEANMACRO
+检测机台：A200
+检测目的：比较 A200 是否可替代 F300 完成清洗后 macro defect 检测。
+检测需求合理性：需谨慎。A200 可用于特定 pattern 场景，但该清洗 layer 的主要需求是 surface macro defect；默认推荐 F300。若使用 A200，必须先完成 recipe qualification 和与 F300 的结果相关性验证。
+机台使用注意事项：
+1. 禁止未经 qualification 直接将 A200 作为 F300 的替代机台。
+2. 使用 split lot 对比 F300 和 A200 的 defect count、map overlap 与 false alarm。
+3. 将 qualification 结果附在 lot disposition 记录中。
+SOP位置：SOP/Detection/Qualification/A200_to_F300_Substitution_v1.0.pdf
+需与 defect owner 确认：
+1. 替代机台是否可接受。
+2. correlation acceptance criteria。
+3. 发生不一致时的最终判定 owner。
+参考案例：DH-167T-LotF1406，A200 对 water mark 的 false alarm 高于 F300，未通过替代验证。
+
+==================================================
+术语说明：
+- F300：用于 surface / macro defect 检测的机台名称示例。
+- A200：用于 pattern inspection 的机台名称示例。
+- defect owner：负责缺陷分类、规格确认和异常处置决策的工艺或产品负责人。
+- recipe：机台检测配方，包含光学条件、阈值、采样和分类参数。
+- SOP：标准作业程序文件；实际使用时需以受控文档系统中的最新版本为准。

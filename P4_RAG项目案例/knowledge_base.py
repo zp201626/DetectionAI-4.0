@@ -1,5 +1,5 @@
 """
-知识库
+知识库更新服务
 """
 import os
 import config_data as config
