@@ -1,0 +1,26 @@
+{
+  "request": {
+    "project": "DH",
+    "product": "167T",
+    "layer": "WLVETCHCLEANNEW",
+    "machine": "F300",
+    "doi_type": ["particle"],
+    "doi_size_value": 0.2,
+    "doi_size_unit": "um",
+    "doi_location": "surface",
+    "doi_electrical": false,
+    "structure_description": null,
+    "process_step": null
+  },
+  "response": {
+    "fit_status": "partially_recommended",
+    "candidate_parameters": [],
+    "qualification_status": "needs_qualification",
+    "evidence": [],
+    "risks": [],
+    "validation_plan": [],
+    "defect_owner_questions": [],
+    "sop_url": null,
+    "allow_production_use": false
+  }
+}

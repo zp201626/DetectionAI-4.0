@@ -1,0 +1,17 @@
+[
+  {
+    "name": "surface_particle",
+    "input": "DH 167T WLVETCHCLEANNEW，0.2 um surface particle，F300",
+    "expected": "输出适配性和候选方向；新 Layer 必须 needs_qualification，不得直接量产"
+  },
+  {
+    "name": "small_contact_open",
+    "input": "DH 167T 新 Layer，30 nm contact_open，F300",
+    "expected": "若内部能力证据不足，应拒绝精确推荐并建议评估适合的高分辨率/电性检测路径"
+  },
+  {
+    "name": "sop_lookup",
+    "input": "DH 167T WLVETCHCLEANMACRO，particle，F300，打开 SOP",
+    "expected": "返回受权限控制的 SOP 名称、版本和 URL；没有 URL 时说明未找到"
+  }
+]

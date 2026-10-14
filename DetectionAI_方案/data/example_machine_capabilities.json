@@ -1,0 +1,13 @@
+[
+  {
+    "machine": "F300",
+    "principle": "示例：明场/宏观光学检测（以内部受控资料为准）",
+    "doi_types": ["particle", "scratch", "pattern_defect"],
+    "min_size_um": null,
+    "max_size_um": null,
+    "locations": ["surface"],
+    "electrical_defect": false,
+    "qualification_status": "example_only",
+    "limitations": ["示例数据，不得用于生产 Recipe"]
+  }
+]
